@@ -1,0 +1,92 @@
+Final Project I ¨C Rails Web Application 
+The overall goal of this assignment is to develop a Rails based application that adopts the MVC pattern and covers all material learnt in class. The application should be hosted on Heroku. 
+Functional Requirements 
+1. The application has at least 4 models with their associated controllers & views 
+
+2. The application has at least 1 nested resource as defined in class 
+
+3. The models¡¯ relationships should use at least 3 of the following 4: . one-to-one 
+
+. one-to-many 
+
+. many-to-many 
+
+. rich one-to-many or many-to-many (has-through) 
+
+
+
+
+4. The application has a user model with proper authentication & authorization 
+
+5. The application uses sessions to identify logged in users 
+
+6. The application illustrates proper use of DRY using partials 
+
+
+NOTE: Authentication and authorization should be fully implemented from scratch without the use of any gems like Devise or CanCanCan. In the second phase, you will be update your project to use Devise. 
+Technical Requirements 
+1. The application is functional (no errors) and logically sound 
+
+2. The application is hosted on Heroku (or an alternative) 
+
+3. CSS should be in a stylesheet and do not use inline styling  
+
+4. Add seed data both locally and on Heroku 
+
+5. Create test accounts & provide their details 
+
+6. Submission should include DB ER diagram and a description of the application flow 
+
+7. Add all project files in a zip archive and upload to Avenue 
+
+8. Provide the link to the Heroku hosted website in your submission 
+
+9. Include any special instructions necessary to run the application in your submission 
+
+
+ 
+ 
+ 
+ 
+ 
+Rubric 
+Criterion 
+ Points (out of 100) 
+ 
+Models 
+ 15 
+ 
+Nested Resource 
+ 10 
+ 
+Model Relationships 
+ 15 
+ 
+User authentication and authorization 
+ 20 
+ 
+Sessions 
+ 10 
+ 
+Application is DRY 
+ 5 
+ 
+Application is functional (no errors) 
+ 15 
+ 
+Hosted on Heroku 
+ 10 
+ 
+No seed data 
+ -5 
+ 
+No test accounts provided 
+ -5 
+ 
+No ER diagram and/or application flow document 
+ -5 
+ 
+
+ 
+
+

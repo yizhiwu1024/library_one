@@ -1,0 +1,89 @@
+/*
+ * This is a manifest file that'll be compiled into application.css.
+ *
+ * With Propshaft, assets are served efficiently without preprocessing steps. You can still include
+ * application-wide styles in this file, but keep in mind that CSS precedence will follow the standard
+ * cascading order, meaning styles declared later in the document or manifest will override earlier ones,
+ * depending on specificity.
+ *
+ * Consider organizing styles into separate files for maintainability.
+ */
+
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0 1.25rem 2rem;
+}
+
+.top-nav {
+  margin: 0 -1.25rem 1.25rem;
+  padding: 1rem 1.25rem;
+  background: #0f172a;
+}
+
+.top-nav nav {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.top-nav a,
+.link-button {
+  color: #fff;
+  text-decoration: none;
+}
+
+.link-button {
+  background: none;
+  border: 0;
+  cursor: pointer;
+  padding: 0;
+  font: inherit;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 1rem;
+}
+
+th,
+td {
+  border: 1px solid #d1d5db;
+  padding: 0.5rem;
+  text-align: left;
+}
+
+th {
+  background: #f3f4f6;
+}
+
+form div {
+  margin-bottom: 0.75rem;
+}
+
+fieldset {
+  margin-top: 1rem;
+  border: 1px solid #cbd5e1;
+}
+
+.flash {
+  padding: 0.75rem;
+  margin: 0.75rem 0;
+  border-radius: 4px;
+}
+
+.flash.notice {
+  background: #dcfce7;
+}
+
+.flash.alert {
+  background: #fee2e2;
+}
+
+.errors {
+  padding: 0.75rem;
+  background: #fef3c7;
+  margin-bottom: 1rem;
+}
+
