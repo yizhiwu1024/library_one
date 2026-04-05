@@ -24,8 +24,8 @@ development:
   <<: *default
   database: one_development
   username: <%= ENV.fetch("ONE_DB_USER", "postgres") %>
-  password: <%= ENV.fetch("ONE_DB_PASSWORD", "123456") %>
-  host: <%= ENV.fetch("ONE_DB_HOST", "127.0.0.1") %>
+  password: <%= ENV["ONE_DB_PASSWORD"] %>
+  host: <%= ENV.fetch("ONE_DB_HOST", "localhost") %>
   port: <%= ENV.fetch("ONE_DB_PORT", 5432) %>
 
   # The specified database role being used to connect to PostgreSQL.
@@ -62,8 +62,8 @@ test:
   <<: *default
   database: one_test
   username: <%= ENV.fetch("ONE_DB_USER", "postgres") %>
-  password: <%= ENV.fetch("ONE_DB_PASSWORD", "123456") %>
-  host: <%= ENV.fetch("ONE_DB_HOST", "127.0.0.1") %>
+  password: <%= ENV["ONE_DB_PASSWORD"] %>
+  host: <%= ENV.fetch("ONE_DB_HOST", "localhost") %>
   port: <%= ENV.fetch("ONE_DB_PORT", 5432) %>
 
 # As with config/credentials.yml, you never want to store sensitive information,
@@ -91,25 +91,8 @@ test:
 #
 # Read https://guides.rubyonrails.org/configuring.html#configuring-a-database
 # for a full overview on how database connection configuration can be specified.
+#
 
-"#{production:
-  primary: &primary_production
-    <<: *default
-    database: one_production
-    username: one
-    password: <%= ENV["ONE_DATABASE_PASSWORD"] %>
-  cache:
-    <<: *primary_production
-    database: one_production_cache
-    migrations_paths: db/cache_migrate
-  queue:
-    <<: *primary_production
-    database: one_production_queue
-    migrations_paths: db/queue_migrate
-  cable:
-    <<: *primary_production
-    database: one_production_cable
-    migrations_paths: db/cable_migrate}"
 
 
 production:
@@ -117,8 +100,6 @@ production:
     <<: *default
     url: <%= ENV["DATABASE_URL"] %>
     pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
-
-  # 将其他组件全部指向 primary 的配置
   cache:
     <<: *primary_production
   queue:
