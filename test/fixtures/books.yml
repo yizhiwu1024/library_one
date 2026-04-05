@@ -1,0 +1,18 @@
+ruby_book:
+  category: computing
+  title: Programming Ruby
+  author: Dave Thomas
+  isbn: "9780974514055"
+  description: Ruby book
+  total_copies: 6
+  available_copies: 4
+
+math_book:
+  category: math
+  title: Discrete Mathematics
+  author: Kenneth Rosen
+  isbn: "9780073383095"
+  description: Math book
+  total_copies: 2
+  available_copies: 0
+

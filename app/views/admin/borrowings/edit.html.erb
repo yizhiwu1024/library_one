@@ -1,0 +1,39 @@
+<h1>Edit Borrowing</h1>
+
+<% if @borrowing.errors.any? %>
+  <div class="errors">
+    <h2><%= pluralize(@borrowing.errors.count, "error") %> prevented this borrowing from being saved:</h2>
+    <ul>
+      <% @borrowing.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>
+
+<%= form_with model: [:admin, @borrowing], local: true do |form| %>
+  <div>
+    <%= form.label :status %>
+    <%= form.select :status, Borrowing.statuses.keys %>
+  </div>
+
+  <div>
+    <%= form.label :borrowed_on %>
+    <%= form.date_field :borrowed_on %>
+  </div>
+
+  <div>
+    <%= form.label :due_on %>
+    <%= form.date_field :due_on %>
+  </div>
+
+  <div>
+    <%= form.label :returned_on %>
+    <%= form.date_field :returned_on %>
+  </div>
+
+  <%= form.submit "Update Borrowing" %>
+<% end %>
+
+<p><%= link_to "Back", admin_borrowings_path %></p>
+

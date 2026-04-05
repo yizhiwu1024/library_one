@@ -1,0 +1,17 @@
+<h1><%= @book.title %></h1>
+
+<p><strong>Author:</strong> <%= @book.author %></p>
+<p><strong>ISBN:</strong> <%= @book.isbn %></p>
+<p><strong>Category:</strong> <%= @book.category.name %></p>
+<p><strong>Book Summary:</strong> <%= @book.description.presence || "-" %></p>
+<p><strong>Stock:</strong> <%= "#{@book.available_copies}/#{@book.total_copies}" %></p>
+
+<% if current_user.member? %>
+  <%= button_to "Borrow this book", book_borrowings_path(@book), method: :post, disabled: !@book.available? %>
+  <% unless @book.available? %>
+    <p>Currently unavailable.</p>
+  <% end %>
+<% end %>
+
+<p><%= link_to "Back to Books", books_path %></p>
+

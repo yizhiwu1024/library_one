@@ -1,0 +1,15 @@
+<h1>Admin Dashboard</h1>
+
+<ul>
+  <li>Active borrowings: <%= @active_borrowings_count %></li>
+  <li>Overdue borrowings: <%= @overdue_count %></li>
+  <li>Borrowings this week: <%= @weekly_borrowings_count %></li>
+</ul>
+
+<p>
+  <%= link_to "Manage Books", admin_books_path %> |
+  <%= link_to "Manage Categories", admin_categories_path %> |
+  <%= link_to "Manage Users", admin_users_path %> |
+  <%= link_to "Manage Borrowings", admin_borrowings_path %>
+</p>
+

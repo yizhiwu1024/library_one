@@ -1,0 +1,13 @@
+<h1><%= @book.title %></h1>
+
+<p><strong>Author:</strong> <%= @book.author %></p>
+<p><strong>ISBN:</strong> <%= @book.isbn %></p>
+<p><strong>Category:</strong> <%= @book.category.name %></p>
+<p><strong>Book Summary:</strong> <%= @book.description.presence || "-" %></p>
+<p><strong>Stock:</strong> <%= "#{@book.available_copies}/#{@book.total_copies}" %></p>
+
+<p>
+  <%= link_to "Edit", edit_admin_book_path(@book) %> |
+  <%= link_to "Back", admin_books_path %>
+</p>
+

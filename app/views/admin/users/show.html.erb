@@ -1,0 +1,16 @@
+<h1>User: <%= @user.email %></h1>
+
+<p><strong>Role:</strong> <%= @user.role %></p>
+<p><strong>Status:</strong> <%= @user.status %></p>
+
+<% if @user.user_profile %>
+  <p><strong>Full name:</strong> <%= @user.user_profile.full_name %></p>
+  <p><strong>Phone:</strong> <%= @user.user_profile.phone.presence || "-" %></p>
+  <p><strong>Address:</strong> <%= @user.user_profile.address.presence || "-" %></p>
+<% end %>
+
+<p>
+  <%= link_to "Edit", edit_admin_user_path(@user) %> |
+  <%= link_to "Back", admin_users_path %>
+</p>
+

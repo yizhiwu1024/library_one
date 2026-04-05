@@ -1,0 +1,52 @@
+<h1>Edit User</h1>
+
+<% if @user.errors.any? %>
+  <div class="errors">
+    <h2><%= pluralize(@user.errors.count, "error") %> prevented this user from being saved:</h2>
+    <ul>
+      <% @user.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>
+
+<%= form_with model: [:admin, @user], local: true do |form| %>
+  <div>
+    <%= form.label :email %>
+    <%= form.email_field :email, required: true %>
+  </div>
+
+  <div>
+    <%= form.label :role %>
+    <%= form.select :role, User.roles.keys %>
+  </div>
+
+  <div>
+    <%= form.label :status %>
+    <%= form.select :status, User.statuses.keys %>
+  </div>
+
+  <%= form.fields_for :user_profile do |profile_form| %>
+    <fieldset>
+      <legend>Profile</legend>
+      <div>
+        <%= profile_form.label :full_name %>
+        <%= profile_form.text_field :full_name, required: true %>
+      </div>
+      <div>
+        <%= profile_form.label :phone %>
+        <%= profile_form.telephone_field :phone %>
+      </div>
+      <div>
+        <%= profile_form.label :address %>
+        <%= profile_form.text_area :address, rows: 3 %>
+      </div>
+    </fieldset>
+  <% end %>
+
+  <%= form.submit "Update User" %>
+<% end %>
+
+<p><%= link_to "Back", admin_users_path %></p>
+

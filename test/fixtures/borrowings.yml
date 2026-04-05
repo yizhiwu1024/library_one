@@ -1,0 +1,18 @@
+active_borrowing:
+  user: member
+  book: ruby_book
+  borrowed_on: <%= Date.current - 2.days %>
+  due_on: <%= Date.current + 8.days %>
+  returned_on:
+  status: borrowed
+  renewal_count: 0
+
+returned_borrowing:
+  user: member
+  book: ruby_book
+  borrowed_on: <%= Date.current - 12.days %>
+  due_on: <%= Date.current - 2.days %>
+  returned_on: <%= Date.current - 1.day %>
+  status: returned
+  renewal_count: 1
+

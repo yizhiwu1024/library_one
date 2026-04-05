@@ -1,0 +1,30 @@
+<h1>Manage Books</h1>
+<p><%= link_to "New Book", new_admin_book_path %></p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th>Author</th>
+      <th>Category</th>
+      <th>Stock</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @books.each do |book| %>
+      <tr>
+        <td><%= book.title %></td>
+        <td><%= book.author %></td>
+        <td><%= book.category.name %></td>
+        <td><%= "#{book.available_copies}/#{book.total_copies}" %></td>
+        <td>
+          <%= link_to "Show", admin_book_path(book) %>
+          <%= link_to "Edit", edit_admin_book_path(book) %>
+          <%= link_to "Delete", admin_book_path(book), data: { turbo_method: :delete, turbo_confirm: "Delete this book?" } %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+

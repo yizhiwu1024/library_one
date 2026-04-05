@@ -1,0 +1,44 @@
+<h1><%= current_user.admin? ? "All Borrowings" : "My Borrowings" %></h1>
+
+<table>
+  <thead>
+    <tr>
+      <% if current_user.admin? %>
+        <th>User</th>
+      <% end %>
+      <th>Book</th>
+      <th>Borrowed On</th>
+      <th>Due On</th>
+      <th>Returned On</th>
+      <th>Status</th>
+      <% unless current_user.admin? %>
+        <th>Actions</th>
+      <% end %>
+    </tr>
+  </thead>
+  <tbody>
+    <% @borrowings.each do |borrowing| %>
+      <tr>
+        <% if current_user.admin? %>
+          <td><%= borrowing.user.email %></td>
+        <% end %>
+        <td><%= borrowing.book.title %></td>
+        <td><%= borrowing.borrowed_on %></td>
+        <td><%= borrowing.due_on %></td>
+        <td><%= borrowing.returned_on || "-" %></td>
+        <td><%= borrowing.status %></td>
+        <% unless current_user.admin? %>
+          <td>
+            <% if borrowing.active? %>
+              <%= button_to "Return", borrowing_path(borrowing), method: :patch, params: { operation: "return" } %>
+              <%= button_to "Renew", borrowing_path(borrowing), method: :patch, params: { operation: "renew" }, disabled: !borrowing.can_renew? %>
+            <% else %>
+              -
+            <% end %>
+          </td>
+        <% end %>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+

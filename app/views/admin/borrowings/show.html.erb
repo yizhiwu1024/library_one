@@ -1,0 +1,15 @@
+<h1>Borrowing #<%= @borrowing.id %></h1>
+
+<p><strong>User:</strong> <%= @borrowing.user.email %></p>
+<p><strong>Book:</strong> <%= @borrowing.book.title %></p>
+<p><strong>Borrowed On:</strong> <%= @borrowing.borrowed_on %></p>
+<p><strong>Due On:</strong> <%= @borrowing.due_on %></p>
+<p><strong>Returned On:</strong> <%= @borrowing.returned_on || "-" %></p>
+<p><strong>Status:</strong> <%= @borrowing.status %></p>
+<p><strong>Renewal Count:</strong> <%= @borrowing.renewal_count %></p>
+
+<p>
+  <%= link_to "Edit", edit_admin_borrowing_path(@borrowing) %> |
+  <%= link_to "Back", admin_borrowings_path %>
+</p>
+

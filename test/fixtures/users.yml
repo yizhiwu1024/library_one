@@ -1,0 +1,18 @@
+admin:
+  email: admin@example.com
+  password_digest: <%= BCrypt::Password.create("Password123!") %>
+  role: admin
+  status: active
+
+member:
+  email: member@example.com
+  password_digest: <%= BCrypt::Password.create("Password123!") %>
+  role: member
+  status: active
+
+suspended_member:
+  email: suspended@example.com
+  password_digest: <%= BCrypt::Password.create("Password123!") %>
+  role: member
+  status: suspended
+

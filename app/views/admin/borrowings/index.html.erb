@@ -1,0 +1,32 @@
+<h1>Manage Borrowings</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>User</th>
+      <th>Book</th>
+      <th>Borrowed On</th>
+      <th>Due On</th>
+      <th>Returned On</th>
+      <th>Status</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @borrowings.each do |borrowing| %>
+      <tr>
+        <td><%= borrowing.user.email %></td>
+        <td><%= borrowing.book.title %></td>
+        <td><%= borrowing.borrowed_on %></td>
+        <td><%= borrowing.due_on %></td>
+        <td><%= borrowing.returned_on || "-" %></td>
+        <td><%= borrowing.status %></td>
+        <td>
+          <%= link_to "Show", admin_borrowing_path(borrowing) %>
+          <%= link_to "Edit", edit_admin_borrowing_path(borrowing) %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
