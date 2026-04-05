@@ -91,8 +91,8 @@ test:
 #
 # Read https://guides.rubyonrails.org/configuring.html#configuring-a-database
 # for a full overview on how database connection configuration can be specified.
-#
-production:
+
+"#{production:
   primary: &primary_production
     <<: *default
     database: one_production
@@ -109,4 +109,19 @@ production:
   cable:
     <<: *primary_production
     database: one_production_cable
-    migrations_paths: db/cable_migrate
+    migrations_paths: db/cable_migrate}"
+
+
+production:
+  primary: &primary_production
+    <<: *default
+    url: <%= ENV["DATABASE_URL"] %>
+    pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+
+  # 将其他组件全部指向 primary 的配置
+  cache:
+    <<: *primary_production
+  queue:
+    <<: *primary_production
+  cable:
+    <<: *primary_production
